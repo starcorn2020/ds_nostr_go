@@ -41,6 +41,7 @@ func (rep *Publish) PublishRelays(keys map[string]string, ConnectURLs []string, 
 		}
 
 		fmt.Printf("published to %s\n", url)
+		relay.Close()
 	}
 	return
 }
