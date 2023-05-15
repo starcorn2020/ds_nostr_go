@@ -6,4 +6,6 @@ type KeysConfig struct {
 	Nsec     string `json:"nsec"`
 	Npub     string `json:"npub"`
 	Postgres string `json:"postgres"`
+	Address  string `json:"address"`
+	Port     string `json:"port"`
 }

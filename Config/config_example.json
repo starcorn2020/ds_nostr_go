@@ -3,5 +3,8 @@
   "pk": "",
   "nsec": "",
   "npub": "",
-  "postgres" : ""
+  "postgres" : "",
+  "address" : "",
+  "port" : ""
+
 }
