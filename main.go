@@ -28,8 +28,7 @@ func main() {
 
 	// Create the auth event to send back.
 	// The user will be authenticated as pub.
-	event := nip42.CreateUnsignedAuthEvent(challenge, pub, url)
-	event.Sign(sk)
+	event := nip42.CreateUnsignedAuthEvent(challenge, pub, url)err = event.Sign(sk)
 
 	// Set-up context with 3 second time out.
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
