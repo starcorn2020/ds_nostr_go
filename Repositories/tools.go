@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-const configPath = "Config/keys.json"
+const configPath = "Config/configs.json"
 
 type Tools struct{}
 
@@ -14,7 +14,7 @@ func NewTools() *Tools {
 	return &Tools{}
 }
 
-func (rep *Tools) ReadKeysJson() (configKey map[string]string, err error) {
+func (rep *Tools) ReadKeysJson() (configs map[string]string, err error) {
 	data, err := os.ReadFile(configPath)
 	if err != nil {
 		panic(err)
@@ -26,11 +26,11 @@ func (rep *Tools) ReadKeysJson() (configKey map[string]string, err error) {
 		panic(err)
 	}
 
-	configKey = make(map[string]string)
-	configKey["sk"] = config.Sk
-	configKey["pk"] = config.Pk
-	configKey["nsec"] = config.Nsec
-	configKey["npub"] = config.Npub
-
-	return configKey, nil
+	configs = make(map[string]string)
+	configs["sk"] = config.Sk
+	configs["pk"] = config.Pk
+	configs["nsec"] = config.Nsec
+	configs["npub"] = config.Npub
+	configs["postgres"] = config.Postgres
+	return configs, nil
 }
