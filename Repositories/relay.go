@@ -14,7 +14,7 @@ import (
 )
 
 type Relay struct {
-	PostgresDatabase string `envconfig:"POSTGRESQL_DATABASE"`
+	PostgresDatabase string `envconfig:"Postgres"`
 	storage          *StorageWrapper
 	ctx              context.Context
 }
@@ -41,6 +41,7 @@ func (r *Relay) InitWithContext(ctx context.Context) error {
 		return fmt.Errorf("couldn't process envconfig: %w", err)
 	}
 
+	fmt.Printf("PostgresDatabase: %v\n", r.PostgresDatabase)
 	r.storage = &StorageWrapper{
 		backend: &postgresql.PostgresBackend{
 			DatabaseURL: r.PostgresDatabase,
